@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Medical Invoice</title>
+    <style>
+        body { font-family: 'Courier New', monospace; background-color: #f4f4f4; padding: 20px; }
+        .invoice-box { max-width: 900px; margin: auto; padding: 20px; border: 1px solid #eee; background: #fff; box-shadow: 0 0 10px rgba(0,0,0,0.15); }
+        .invoice-box h1 { text-align: center; font-size: 24px; margin-bottom: 5px; }
+        .invoice-box h3 { text-align: center; font-size: 16px; margin: 0 0 20px; color: #555; }
+
+        .invoice-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .invoice-table th, .invoice-table td { border: 1px solid #ddd; padding: 6px; text-align: center; font-size: 14px; }
+        .invoice-table th { background-color: #20c997; color: white; }
+
+        .total-section { margin-top: 15px; text-align: right; font-size: 14px; }
+        .total-section p { margin: 3px 0; }
+
+        .net-amount { font-weight: bold; color: #28a745; }
+        .note { font-size: 12px; margin-top: 15px; text-align: center; color: #555; }
+
+        /* Add-item form styles */
+        .add-form { margin-bottom: 20px; display:none; }
+        .add-form table { width: 100%; border-collapse: collapse; }
+        .add-form th, .add-form td { padding: 6px; font-size: 14px; }
+        .add-form input { width: 100%; padding: 4px; box-sizing: border-box; }
+        .add-form button { padding: 6px 12px; background-color: #28a745; color: white; border: none; cursor: pointer; }
+        .add-form button:hover { background-color: #218838; }
+        .add-form th { text-align: left; color: #555; }
+
+        .show-btn { padding: 8px 16px; background-color:#20c997; color: white; border: none; cursor: pointer; margin-bottom: 10px; }
+        .show-btn:hover { background-color: #20c997; }
+    </style>
+</head>
+<body>
+<div class="invoice-box">
+    <h1>Medical Invoice</h1>
+    <h3>Medical Store Bill Format</h3>
+
+    
+    <!-- Invoice Table -->
+    <table class="invoice-table">
+        <thead>
+            <tr>
+                <th>Qty</th>
+                <th>Description</th>
+                <th>Packing</th>
+                <th>GST %</th>
+                <th>Trade</th>
+                <th>Retail</th>
+                <th>Discount %</th>
+                <th>Expiry Date</th>
+                <th>Net Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="item : ${items}">
+                <td th:text="${item.quantity}"></td>
+                <td th:text="${item.description}"></td>
+                <td th:text="${item.packing}"></td>
+                <td th:text="${item.gst}"></td>
+                <td th:text="${item.tradePrice}"></td>
+                <td th:text="${item.retailPrice}"></td>
+                <td th:text="${item.discount}"></td>
+                <td th:text="${#dates.format(item.expiryDate, 'yyyy-MM-dd')}"></td>
+                <td class="net-amount" th:text="${T(java.lang.String).format('%.2f', item.netAmount)}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Totals -->
+    <div class="total-section">
+        <p>Total Amount: <span th:text="${T(java.lang.String).format('%.2f', totalAmount)}"></span></p>
+        <p>GST: <span th:text="${T(java.lang.String).format('%.2f', totalGST)}"></span></p>
+        <p>Total Receivable: <span th:text="${T(java.lang.String).format('%.2f', totalReceivable)}"></span></p>
+        <p>Cash Received: <span th:text="${cashReceived}"></span></p>
+        <p>Cashback: <span th:text="${cashBack}"></span></p>
+    </div>
+
+    <div class="note">
+        Note: Check goods & expiry date before leaving counter. No responsibility after delivery.
+    </div>
+</div>
+
+<script>
+    const btn = document.getElementById('showAddFormBtn');
+    const form = document.getElementById('addForm');
+    if(btn) {
+        btn.addEventListener('click', () => {
+            form.style.display = 'block';
+            btn.style.display = 'none';
+        });
+    }
+</script>
+</body>
+</html>
