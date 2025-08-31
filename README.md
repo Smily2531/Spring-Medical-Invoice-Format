@@ -89,8 +89,9 @@ http://localhost:8081/invoice
 
 **Invoice View (Outputs):**
 
-![Invoice Output 1](https://github.com/user-attachments/assets/3f9079f1-3d3...png)  
-![Invoice Output 2](https://github.com/user-attachments/assets/db91719e-d23...png)  
+<img width="1248" height="538" alt="Screenshot 2025-08-31 171502" src="https://github.com/user-attachments/assets/df8d7833-2959-4ee2-9a67-d9153e891344" />
+
+
 
 
 
