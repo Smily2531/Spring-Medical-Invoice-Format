@@ -27,6 +27,9 @@ The system fetches **pre-stored medicine details** from a MySQL database and dis
 ## ⚙️ Database Setup
 1. Create MySQL database:
    ```sql
+   CREATE DATABASE medical_shop;
+   USE medical_shop;
+
    2.Create table:
    CREATE TABLE invoice_item (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -61,6 +64,7 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.jpa.hibernate.ddl-auto=none
 spring.jpa.show-sql=true
 
+
 🚀Running the Project
 
 1.Clone the repository:
@@ -88,5 +92,4 @@ Screenshots
 
 ✅ Clean UI built with Thymeleaf + CSS.
 
-   CREATE DATABASE medical_shop;
-   USE medical_shop;structured neatly heading strong balck font 
+   
