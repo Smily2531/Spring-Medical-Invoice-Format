@@ -4,10 +4,10 @@
 This project is a **Medical Invoice Billing System** built using **Spring Boot, MySQL, Thymeleaf, and JDBC**.  
 The system fetches **pre-stored medicine details** from a MySQL database and displays them in a **bill format**.  
 
-⚡️ Key Highlights:  
+⚡️ Key point:  
 - Users do **not insert data via browser**.  
 - All medicine details are **already stored in MySQL**.  
-- Visiting **`/invoice`** will fetch the data and generate a **medical bill**.  
+- Visiting `/invoice` will fetch the data and generate a **medical bill**.  
 
 ---
 
@@ -20,20 +20,15 @@ The system fetches **pre-stored medicine details** from a MySQL database and dis
 ---
 
 ## 📂 Project Structure
-<img width="615" height="266" alt="Project Structure" src="https://github.com/user-attachments/assets/31ef1105-7bde-4015-be66-2101bfd50dbb" />
+<img width="615" height="266" alt="image" src="https://github.com/user-attachments/assets/31ef1105-7bde-4015-be66-2101bfd50dbb" />
 
 ---
 
 ## ⚙️ Database Setup
-
-**1️⃣ Create Database**
-```sql
-CREATE DATABASE medical_shop;
-USE medical_shop;
-
-2️⃣ Create Table
-
-CREATE TABLE invoice_item (
+1. Create MySQL database:
+   ```sql
+   2.Create table:
+   CREATE TABLE invoice_item (
     id INT AUTO_INCREMENT PRIMARY KEY,
     quantity INT,
     description VARCHAR(255),
@@ -45,9 +40,7 @@ CREATE TABLE invoice_item (
     expiry_date DATE,
     net_amount DOUBLE
 );
-
-3️⃣ Insert Sample Medicines
-
+3.Insert sample medicines:
 INSERT INTO invoice_item (quantity, description, packing, gst, trade_price, retail_price, discount, expiry_date, net_amount)
 VALUES
 (10, 'Paracetamol', '10x10', 5.0, 20.0, 25.0, 10.0, '2026-05-10', 237.50),
@@ -68,32 +61,22 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.jpa.hibernate.ddl-auto=none
 spring.jpa.show-sql=true
 
-🚀 Running the Project
+🚀Running the Project
 
-1️⃣ Clone the repository
+1.Clone the repository:
 
 git clone https://github.com/yourusername/medical-invoice-billing.git
 cd medical-invoice-billing
 
-
-2️⃣ Build and run
-
+2.Build and run:
 mvn spring-boot:run
 
-
-3️⃣ Open in browser
-
+3.Open in browser:
 http://localhost:8081/invoice
 
-## 📸 Screenshots  
-
-**Invoice View (Outputs):**
-
-<img width="1248" height="538" alt="Screenshot 2025-08-31 171502" src="https://github.com/user-attachments/assets/df8d7833-2959-4ee2-9a67-d9153e891344" />
-
-
-
-
+Screenshots
+1.<img width="1639" height="785" alt="image" src="https://github.com/user-attachments/assets/be07017b-51a7-43c7-8590-fa1ec8c61197" />
+2.<img width="1186" height="477" alt="image" src="https://github.com/user-attachments/assets/20bfc72f-597b-4d46-9191-206609248657" />
 
 📌 Features
 
@@ -105,7 +88,5 @@ http://localhost:8081/invoice
 
 ✅ Clean UI built with Thymeleaf + CSS.
 
-✨ Author
-
-👨‍💻 N Smily
-B.Tech CSE (4th Year) @Aditya College of Engineering & Technology (ACET)
+   CREATE DATABASE medical_shop;
+   USE medical_shop;structured neatly heading strong balck font 
