@@ -85,12 +85,13 @@ mvn spring-boot:run
 
 http://localhost:8081/invoice
 
-📸 Screenshots
+## 📸 Screenshots  
 
-Invoice View (OUTPUTS)
+**Invoice View (Outputs):**
 
-<img width="1176" height="476" alt="image" src="https://github.com/user-attachments/assets/3f9079f1-3d31-487a-952a-f7c8ad4dcbe0" />
-<img width="1181" height="490" alt="image" src="https://github.com/user-attachments/assets/db91719e-d230-4e3d-b318-a4ff761e72db" />
+![Invoice Output 1](https://github.com/user-attachments/assets/3f9079f1-3d3...png)  
+![Invoice Output 2](https://github.com/user-attachments/assets/db91719e-d23...png)  
+
 
 
 📌 Features
