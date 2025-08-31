@@ -30,3 +30,79 @@ The system fetches **pre-stored medicine details** from a MySQL database and dis
 ```sql
 CREATE DATABASE medical_shop;
 USE medical_shop;
+
+2️⃣ Create Table
+
+CREATE TABLE invoice_item (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    quantity INT,
+    description VARCHAR(255),
+    packing VARCHAR(255),
+    gst DOUBLE,
+    trade_price DOUBLE,
+    retail_price DOUBLE,
+    discount DOUBLE,
+    expiry_date DATE,
+    net_amount DOUBLE
+);
+
+3️⃣ Insert Sample Medicines
+
+INSERT INTO invoice_item (quantity, description, packing, gst, trade_price, retail_price, discount, expiry_date, net_amount)
+VALUES
+(10, 'Paracetamol', '10x10', 5.0, 20.0, 25.0, 10.0, '2026-05-10', 237.50),
+(5, 'Amoxicillin', '5x10', 12.0, 50.0, 60.0, 5.0, '2025-12-01', 318.00);
+
+⚙️ Application Properties
+
+Configure MySQL in application.properties:
+
+spring.application.name=MedicalInvoiceApp
+server.port=8081
+
+spring.datasource.url=jdbc:mysql://localhost:3306/medical_shop
+spring.datasource.username=root
+spring.datasource.password=your_password
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+spring.jpa.hibernate.ddl-auto=none
+spring.jpa.show-sql=true
+
+🚀 Running the Project
+
+1️⃣ Clone the repository
+
+git clone https://github.com/yourusername/medical-invoice-billing.git
+cd medical-invoice-billing
+
+
+2️⃣ Build and run
+
+mvn spring-boot:run
+
+
+3️⃣ Open in browser
+
+http://localhost:8081/invoice
+
+📸 Screenshots
+
+Invoice View Example
+
+<img width="1639" height="785" alt="Invoice Page" src="https://github.com/user-attachments/assets/be07017b-51a7-43c7-8590-fa1ec8c61197" />
+<img width="1186" height="477" alt="Invoice Table" src="https://github.com/user-attachments/assets/20bfc72f-597b-4d46-9191-206609248657" />
+
+📌 Features
+
+✅ Fetches medicines directly from MySQL database.
+
+✅ Displays invoice table with medicine details.
+
+✅ Shows Total Amount, GST, and Receivable.
+
+✅ Clean UI built with Thymeleaf + CSS.
+
+✨ Author
+
+👨‍💻 N Smily
+B.Tech CSE (4th Year) @Aditya College of Engineering & Technology (ACET)
